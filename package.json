@@ -1,0 +1,15 @@
+{
+  "name": "truffle-flatten",
+  "version": "1.0.0",
+  "description": "",
+  "main": "flatten.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "truffle-flattener": "^1.4.2"
+  }
+}
