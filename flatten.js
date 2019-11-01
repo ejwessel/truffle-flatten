@@ -21,7 +21,7 @@ async function flatten(config) {
   flatSourceCode = flatSourceCode.replace(emptyReg,"")
   flatSourceCode = pragmaExperimental + "\n" + flatSourceCode
   flatSourceCode = pragmaVersion + "\n" + flatSourceCode
-  let fileName = "flat/" + artifact + "_Flattened.sol";
+  let fileName = "flatten/" + artifact + "_Flattened.sol";
   console.log("Flatten file generated: " + fileName)
   fs.outputFileSync(fileName, flatSourceCode, function (err) {
     if (err) throw err;
