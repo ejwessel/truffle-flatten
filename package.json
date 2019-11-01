@@ -1,6 +1,6 @@
 {
   "name": "truffle-flatten",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": "https://github.com/ejwessel/truffle-flatten.git",
   "main": "flatten.js",
