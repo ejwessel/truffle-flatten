@@ -1,9 +1,9 @@
 const fs = require('fs-extra')
 
-async function flatten() {
+async function flatten(config) {
   const flattener = await require('truffle-flattener');
-  artifact = process.argv[2]
-  artifactSource = process.argv[3]
+  artifact = config._[1]
+  artifactSource = config._[2]
 
   console.log("artifact: " + artifact)
   console.log("artifactSource: " + artifactSource)
@@ -11,7 +11,6 @@ async function flatten() {
   const versionReg = /pragma solidity \^?([0-9]+.[0-9]+.[0-9]+;)/g
   const experimentalReg = /pragma experimental ABIEncoderV2;/g
   const emptyReg = /^\s*[\r\n]/gm
-  //const sourceCode = fs.readFileSync(artifactSource, 'utf8')
   let flatSourceCode = await flattener([ artifactSource ], '.');
   let versions = flatSourceCode.match(versionReg);
   let experimentals = flatSourceCode.match(experimentalReg);
@@ -23,14 +22,17 @@ async function flatten() {
   flatSourceCode = pragmaExperimental + "\n" + flatSourceCode
   flatSourceCode = pragmaVersion + "\n" + flatSourceCode
   let fileName = "flat/" + artifact + "_Flattened.sol";
-  console.log(fileName)
-  fs.outputFile(fileName, flatSourceCode, function (err) {
+  console.log("Flatten file generated: " + fileName)
+  fs.outputFileSync(fileName, flatSourceCode, function (err) {
     if (err) throw err;
   })
 }
 
-flatten().then(result => {
-  console.log('Generated Flattened File')
-}).catch(error => {
-  console.log(error)
-});
+module.exports = async (config) => {
+  if(config.help) {
+    console.log("truffle run verify <Contract_Name> <Contract_Source>")
+    done(null, [], [])
+    return
+  }
+  await flatten(config)
+}
