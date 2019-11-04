@@ -26,8 +26,6 @@ This truffle plugin does very little in addition to what the base tool Nomic Lab
    ```
 
 ## Usage
-Before running verification, make sure that you have actually deployed your contracts to a public network with Truffle. After deployment, run the following command with one or more contracts that you wish to verify:
-
 ```
 truffle run flatten <Source.sol>
 ```
