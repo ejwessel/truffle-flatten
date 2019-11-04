@@ -1,12 +1,19 @@
 {
   "name": "truffle-flatten",
-  "version": "1.0.3",
-  "description": "",
+  "version": "1.0.4",
+  "description": "Flatten Solidity Smart Contracts",
   "repository": "https://github.com/ejwessel/truffle-flatten.git",
   "main": "flatten.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "truffle",
+    "plugin",
+    "ethereum",
+    "solidity",
+    "flatten"
+  ],
   "author": "Ethan Wessel",
   "license": "MIT",
   "dependencies": {
