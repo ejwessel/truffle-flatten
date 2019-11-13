@@ -15,7 +15,7 @@ async function flatten(config) {
   let experimentals = flatSourceCode.match(experimentalReg);
 
   let pragmaVersion = versions.slice(-1)[0] ? versions.slice(-1)[0] : "";
-  let pragmaExperimental = experimentals[0] ? experimentals[0] : "";
+  let pragmaExperimental = experimentals && experimentals[0] ? experimentals[0] : "";
 
   flatSourceCode = flatSourceCode.replace(versionReg, "")
   flatSourceCode = flatSourceCode.replace(experimentalReg, "")
