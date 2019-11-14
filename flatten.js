@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const fs = require('fs-extra')
 
 async function flatten(config) {
@@ -12,6 +13,7 @@ async function flatten(config) {
   let flatSourceCode = await flattener([ artifactSource ], '.');
 
   let versions = flatSourceCode.match(versionReg).sort();
+  _.remove(versions, function(e) { return e.includes('^'); });
   let experimentals = flatSourceCode.match(experimentalReg);
 
   let pragmaVersion = versions.slice(-1)[0] ? versions.slice(-1)[0] : "";
