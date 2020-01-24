@@ -22,7 +22,7 @@
     "truffle-flattener": "^1.4.2"
   },
   "bugs": {
-    "url": "https://github.com/ejwessel/truffle-verify/issues"
+    "url": "https://github.com/ejwessel/truffle-flatten/issues"
   },
-  "homepage": "https://github.com/ejwessel/truffle-verify#readme"
+  "homepage": "https://github.com/ejwessel/truffle-flatten#readme"
 }
